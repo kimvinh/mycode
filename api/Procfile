@@ -1,0 +1,2 @@
+api: gunicorn --access-logfile - --capture-output api:__hug_wsgi__
+timelines_services: gunicorn --access-logfile - --capture-output timelines_services:__hug_wsgi__
