@@ -1,0 +1,11 @@
+# Load Dynamodb Local
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+
+# Scan tables in Dynamodb
+aws dynamodb scan --table-name poll --endpoint-url="http://localhost:8000"
+
+# Delete a table in Dynamodb
+aws dynamodb delete-table --table-name poll --endpoint-url="http://localhost:8000"
+
+# List tables in Dynamodb
+aws dynamodb list-tables --endpoint-url="http://localhost:8000"
