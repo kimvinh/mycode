@@ -1,0 +1,1889 @@
+[2021-11-25 22:21:05,456] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-11-25 22:21:05,458] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 409 19
+[2021-11-25 22:21:05,463] DEBUG in boto3.resources.action: Calling dynamodb:put_item with {'TableName': 'polls', 'Item': {'poll_id': 1, 'created_by': 'vinhtran', 'question': 'Which OS are you using?', 'responses': ['MacOS', 'Windows', 'Linux'], 'voted_users': {'MacOS': [], 'Windows': [], 'Linux': []}, 'voted_counts': {'MacOS': 0, 'Windows': 0, 'Linux': 0}}, 'ConditionExpression': 'attribute_not_exists(poll_id)'}
+[2021-11-25 22:21:05,464] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.PutItem: calling handler <function copy_dynamodb_params at 0x7fd7cc30be50>
+[2021-11-25 22:21:05,464] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:21:05,464] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:21:05,465] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <function generate_idempotent_uuid at 0x7fd7cc6f73a0>
+[2021-11-25 22:21:05,465] DEBUG in botocore.hooks: Event before-call.dynamodb.PutItem: calling handler <function inject_api_version_header_if_needed at 0x7fd7cc6fbe50>
+[2021-11-25 22:21:05,466] DEBUG in botocore.endpoint: Making request for OperationModel(name=PutItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.PutItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Item": {"poll_id": {"N": "1"}, "created_by": {"S": "vinhtran"}, "question": {"S": "Which OS are you using?"}, "responses": {"L": [{"S": "MacOS"}, {"S": "Windows"}, {"S": "Linux"}]}, "voted_users": {"M": {"MacOS": {"L": []}, "Windows": {"L": []}, "Linux": {"L": []}}}, "voted_counts": {"M": {"MacOS": {"N": "0"}, "Windows": {"N": "0"}, "Linux": {"N": "0"}}}}, "ConditionExpression": "attribute_not_exists(poll_id)"}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fd7cc332d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:21:05,466] DEBUG in botocore.hooks: Event request-created.dynamodb.PutItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fd7cc332ca0>>
+[2021-11-25 22:21:05,466] DEBUG in botocore.hooks: Event choose-signer.dynamodb.PutItem: calling handler <function set_operation_specific_signer at 0x7fd7cc6f7280>
+[2021-11-25 22:21:05,468] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:21:05,468] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062105Z
+x-amz-target:DynamoDB_20120810.PutItem
+
+content-type;host;x-amz-date;x-amz-target
+b178bc0e51d7aa374298b780dc8c6ba0268646049d5d3ab62d240a2fed39ebab
+[2021-11-25 22:21:05,469] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062105Z
+20211126/us-west-2/dynamodb/aws4_request
+ef56e15c144f98fce34dee0eca669cefddfcd5e7c3429162bfc6c179be5b5c45
+[2021-11-25 22:21:05,469] DEBUG in botocore.auth: Signature:
+8ca9682e50101975c1bfa65c422fc34462f1853ec7d152351f7d4dea264764e3
+[2021-11-25 22:21:05,470] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.PutItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062105Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=8ca9682e50101975c1bfa65c422fc34462f1853ec7d152351f7d4dea264764e3', 'Content-Length': '438'}>
+[2021-11-25 22:21:05,470] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-11-25 22:21:06,403] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-11-25 22:21:06,403] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:21:05 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': 'f1d56a88-9a98-47b6-87da-3fe0cc92b8f3', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:21:06,403] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-11-25 22:21:06,404] DEBUG in botocore.hooks: Event needs-retry.dynamodb.PutItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fd7cc3577c0>
+[2021-11-25 22:21:06,404] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:21:06,404] DEBUG in botocore.hooks: Event after-call.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:21:06,404] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': 'f1d56a88-9a98-47b6-87da-3fe0cc92b8f3', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:21:05 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': 'f1d56a88-9a98-47b6-87da-3fe0cc92b8f3', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-11-25 22:23:56,000] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-11-25 22:23:56,001] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fd7cc30be50>
+[2021-11-25 22:23:56,001] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:23:56,001] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:23:56,001] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fd7cc6f73a0>
+[2021-11-25 22:23:56,002] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fd7cc6fbe50>
+[2021-11-25 22:23:56,002] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fd7cc332d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:23:56,002] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fd7cc332ca0>>
+[2021-11-25 22:23:56,002] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fd7cc6f7280>
+[2021-11-25 22:23:56,002] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:23:56,002] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062356Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-11-25 22:23:56,003] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062356Z
+20211126/us-west-2/dynamodb/aws4_request
+d8688dfd7e12f737b6547b38e6d02164b63d3f8b703077d72ea7e267ad98e7c1
+[2021-11-25 22:23:56,003] DEBUG in botocore.auth: Signature:
+306dcf231a4ac0608bc340c07a73186e0ea7b9448ea179da72af317cdca0bd27
+[2021-11-25 22:23:56,003] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062356Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=306dcf231a4ac0608bc340c07a73186e0ea7b9448ea179da72af317cdca0bd27', 'Content-Length': '54'}>
+[2021-11-25 22:23:56,003] DEBUG in urllib3.connectionpool: Resetting dropped connection: localhost
+[2021-11-25 22:23:56,047] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 321
+[2021-11-25 22:23:56,048] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:23:56 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-RequestId': '10b3f7a3-e883-41dd-9a7e-49f4ea9ac0ef', 'Content-Length': '321', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:23:56,048] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"0"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[]},"Windows":{"L":[]}}}}}'
+[2021-11-25 22:23:56,049] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fd7cc3577c0>
+[2021-11-25 22:23:56,049] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:23:56,049] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:23:56,049] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('0'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': [], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '10b3f7a3-e883-41dd-9a7e-49f4ea9ac0ef', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:23:56 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-requestid': '10b3f7a3-e883-41dd-9a7e-49f4ea9ac0ef', 'content-length': '321', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-11-25 22:24:59,170] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-11-25 22:24:59,170] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fd7cc30be50>
+[2021-11-25 22:24:59,171] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:24:59,171] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:24:59,171] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fd7cc6f73a0>
+[2021-11-25 22:24:59,171] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fd7cc6fbe50>
+[2021-11-25 22:24:59,171] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fd7cc332d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:24:59,171] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fd7cc332ca0>>
+[2021-11-25 22:24:59,171] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fd7cc6f7280>
+[2021-11-25 22:24:59,171] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:24:59,172] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062459Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-11-25 22:24:59,172] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062459Z
+20211126/us-west-2/dynamodb/aws4_request
+60a4089e897c98fd0072a6c312a38c4e13a72d3da85eb1fe84fcd1e2d53947bf
+[2021-11-25 22:24:59,172] DEBUG in botocore.auth: Signature:
+a30cdd663dd9f5024d1e62aa63afd07cba620c88f16a3c611cc8a87b043091f3
+[2021-11-25 22:24:59,172] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062459Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=a30cdd663dd9f5024d1e62aa63afd07cba620c88f16a3c611cc8a87b043091f3', 'Content-Length': '54'}>
+[2021-11-25 22:24:59,172] DEBUG in urllib3.connectionpool: Resetting dropped connection: localhost
+[2021-11-25 22:24:59,191] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 321
+[2021-11-25 22:24:59,191] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:24:59 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-RequestId': '3b49d919-526d-42c7-ac37-387cbc623286', 'Content-Length': '321', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:24:59,191] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"0"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[]},"Windows":{"L":[]}}}}}'
+[2021-11-25 22:24:59,192] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fd7cc3577c0>
+[2021-11-25 22:24:59,194] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:24:59,194] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:24:59,194] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('0'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': [], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '3b49d919-526d-42c7-ac37-387cbc623286', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:24:59 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-requestid': '3b49d919-526d-42c7-ac37-387cbc623286', 'content-length': '321', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-11-25 22:25:05,547] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-11-25 22:25:05,547] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fd7cc30be50>
+[2021-11-25 22:25:05,547] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:25:05,548] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:25:05,548] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fd7cc6f73a0>
+[2021-11-25 22:25:05,548] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fd7cc6fbe50>
+[2021-11-25 22:25:05,548] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fd7cc332d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:25:05,548] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fd7cc332ca0>>
+[2021-11-25 22:25:05,549] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fd7cc6f7280>
+[2021-11-25 22:25:05,549] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:25:05,549] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062505Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-11-25 22:25:05,549] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062505Z
+20211126/us-west-2/dynamodb/aws4_request
+343148e9e93aaf50e010519a1ba21aba332006af39256d3aca7c6916ca4d14be
+[2021-11-25 22:25:05,550] DEBUG in botocore.auth: Signature:
+4da3f535fe9805117ac72798239d57f33d0c66abbab30b1736537c6730756320
+[2021-11-25 22:25:05,550] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062505Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=4da3f535fe9805117ac72798239d57f33d0c66abbab30b1736537c6730756320', 'Content-Length': '54'}>
+[2021-11-25 22:25:05,557] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 321
+[2021-11-25 22:25:05,558] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:25:05 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-RequestId': '1e05a607-8e03-4efc-aec3-d94500abec77', 'Content-Length': '321', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:25:05,558] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"0"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[]},"Windows":{"L":[]}}}}}'
+[2021-11-25 22:25:05,558] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fd7cc3577c0>
+[2021-11-25 22:25:05,561] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:25:05,562] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:25:05,562] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('0'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': [], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '1e05a607-8e03-4efc-aec3-d94500abec77', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:25:05 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-requestid': '1e05a607-8e03-4efc-aec3-d94500abec77', 'content-length': '321', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-11-25 22:25:05,562] DEBUG in boto3.resources.action: Calling dynamodb:put_item with {'TableName': 'polls', 'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('1'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': ['vinhtran'], 'Windows': []}}}
+[2021-11-25 22:25:05,563] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.PutItem: calling handler <function copy_dynamodb_params at 0x7fd7cc30be50>
+[2021-11-25 22:25:05,563] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:25:05,563] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:25:05,564] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <function generate_idempotent_uuid at 0x7fd7cc6f73a0>
+[2021-11-25 22:25:05,564] DEBUG in botocore.hooks: Event before-call.dynamodb.PutItem: calling handler <function inject_api_version_header_if_needed at 0x7fd7cc6fbe50>
+[2021-11-25 22:25:05,564] DEBUG in botocore.endpoint: Making request for OperationModel(name=PutItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.PutItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Item": {"responses": {"L": [{"S": "MacOS"}, {"S": "Windows"}, {"S": "Linux"}]}, "voted_counts": {"M": {"Linux": {"N": "0"}, "MacOS": {"N": "1"}, "Windows": {"N": "0"}}}, "poll_id": {"N": "1"}, "question": {"S": "Which OS are you using?"}, "created_by": {"S": "vinhtran"}, "voted_users": {"M": {"Linux": {"L": []}, "MacOS": {"L": [{"S": "vinhtran"}]}, "Windows": {"L": []}}}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fd7cc332d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:25:05,565] DEBUG in botocore.hooks: Event request-created.dynamodb.PutItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fd7cc332ca0>>
+[2021-11-25 22:25:05,565] DEBUG in botocore.hooks: Event choose-signer.dynamodb.PutItem: calling handler <function set_operation_specific_signer at 0x7fd7cc6f7280>
+[2021-11-25 22:25:05,565] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:25:05,565] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062505Z
+x-amz-target:DynamoDB_20120810.PutItem
+
+content-type;host;x-amz-date;x-amz-target
+c66f0cecab1f4cf1608fbe3b261bce194708a731c45d4452373bcdc2275ddf84
+[2021-11-25 22:25:05,566] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062505Z
+20211126/us-west-2/dynamodb/aws4_request
+289624ef7565fc26fb289d606e8242ae2d969126aa9665665d109dd6dbdc509a
+[2021-11-25 22:25:05,567] DEBUG in botocore.auth: Signature:
+32cd98121b999537f0c1f18112fc7cf8863b70a2fdeb59fe7d7886cb0032a8ea
+[2021-11-25 22:25:05,567] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.PutItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062505Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=32cd98121b999537f0c1f18112fc7cf8863b70a2fdeb59fe7d7886cb0032a8ea', 'Content-Length': '399'}>
+[2021-11-25 22:25:05,607] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-11-25 22:25:05,608] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:25:05 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': '74b6450d-e537-4c10-a65d-383d35d55332', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:25:05,608] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-11-25 22:25:05,608] DEBUG in botocore.hooks: Event needs-retry.dynamodb.PutItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fd7cc3577c0>
+[2021-11-25 22:25:05,609] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:25:05,609] DEBUG in botocore.hooks: Event after-call.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fd7cc2ef7c0>>
+[2021-11-25 22:25:05,609] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': '74b6450d-e537-4c10-a65d-383d35d55332', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:25:05 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': '74b6450d-e537-4c10-a65d-383d35d55332', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-11-25 22:25:56,924] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-11-25 22:25:56,929] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 409 19
+[2021-11-25 22:25:56,936] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-11-25 22:25:56,937] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7f75e6d6be50>
+[2021-11-25 22:25:56,938] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7f75e6d4f7c0>>
+[2021-11-25 22:25:56,938] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7f75e6d4f7c0>>
+[2021-11-25 22:25:56,938] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7f75e71573a0>
+[2021-11-25 22:25:56,938] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7f75e715be50>
+[2021-11-25 22:25:56,939] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7f75e6d92d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:25:56,939] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f75e6d92ca0>>
+[2021-11-25 22:25:56,939] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f75e7157280>
+[2021-11-25 22:25:56,940] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:25:56,940] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062556Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-11-25 22:25:56,941] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062556Z
+20211126/us-west-2/dynamodb/aws4_request
+69bd8db75a0cca3734cebd47349378a21c616239885f5abb486dd78064d699b6
+[2021-11-25 22:25:56,942] DEBUG in botocore.auth: Signature:
+8f888588ea484402c8595c86e9b6549600feaf934472f49eebc56500fd755d7d
+[2021-11-25 22:25:56,942] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062556Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=8f888588ea484402c8595c86e9b6549600feaf934472f49eebc56500fd755d7d', 'Content-Length': '54'}>
+[2021-11-25 22:25:56,942] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-11-25 22:25:56,948] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 337
+[2021-11-25 22:25:56,949] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:25:56 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3128978751', 'x-amzn-RequestId': '2bb406cb-6a8e-4884-a7c1-dc838701624b', 'Content-Length': '337', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:25:56,949] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"1"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[{"S":"vinhtran"}]},"Windows":{"L":[]}}}}}'
+[2021-11-25 22:25:56,950] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f75e6db77c0>
+[2021-11-25 22:25:56,957] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:25:56,957] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7f75e6d4f7c0>>
+[2021-11-25 22:25:56,957] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('1'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': ['vinhtran'], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '2bb406cb-6a8e-4884-a7c1-dc838701624b', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:25:56 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3128978751', 'x-amzn-requestid': '2bb406cb-6a8e-4884-a7c1-dc838701624b', 'content-length': '337', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-11-25 22:26:58,225] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-11-25 22:26:58,230] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-11-25 22:26:58,238] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-11-25 22:26:58,238] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7f08660dee50>
+[2021-11-25 22:26:58,238] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7f08660c37c0>>
+[2021-11-25 22:26:58,239] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7f08660c37c0>>
+[2021-11-25 22:26:58,239] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7f08664ca3a0>
+[2021-11-25 22:26:58,239] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7f08664cee50>
+[2021-11-25 22:26:58,240] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7f0866105d30>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-11-25 22:26:58,241] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f0866105ca0>>
+[2021-11-25 22:26:58,241] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f08664ca280>
+[2021-11-25 22:26:58,242] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-11-25 22:26:58,242] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211126T062658Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-11-25 22:26:58,243] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211126T062658Z
+20211126/us-west-2/dynamodb/aws4_request
+292b9e76378650138406cb1f4f32f6adf357efa7a31bf1c779c31dabce61ba72
+[2021-11-25 22:26:58,243] DEBUG in botocore.auth: Signature:
+c3d2e294c2fc3116174afcf11bc687a95f1166de20581c7a5ae34ef424897649
+[2021-11-25 22:26:58,243] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-40-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211126T062658Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211126/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=c3d2e294c2fc3116174afcf11bc687a95f1166de20581c7a5ae34ef424897649', 'Content-Length': '54'}>
+[2021-11-25 22:26:58,244] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-11-25 22:26:58,249] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 337
+[2021-11-25 22:26:58,250] DEBUG in botocore.parsers: Response headers: {'Date': 'Fri, 26 Nov 2021 06:26:58 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3128978751', 'x-amzn-RequestId': '7f475dcb-0262-4915-bf91-bef661e9b814', 'Content-Length': '337', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-11-25 22:26:58,250] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"1"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[{"S":"vinhtran"}]},"Windows":{"L":[]}}}}}'
+[2021-11-25 22:26:58,251] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f086612a7c0>
+[2021-11-25 22:26:58,251] DEBUG in botocore.retryhandler: No retry needed.
+[2021-11-25 22:26:58,252] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7f08660c37c0>>
+[2021-11-25 22:26:58,252] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('1'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': ['vinhtran'], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '7f475dcb-0262-4915-bf91-bef661e9b814', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Fri, 26 Nov 2021 06:26:58 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3128978751', 'x-amzn-requestid': '7f475dcb-0262-4915-bf91-bef661e9b814', 'content-length': '337', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 21:47:26,181] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 21:47:26,191] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 21:48:50,290] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 21:48:50,295] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 21:49:54,658] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 21:49:54,673] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 21:50:44,729] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-12-10 21:50:44,729] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7f5c962e2e50>
+[2021-12-10 21:50:44,729] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7f5c962c6850>>
+[2021-12-10 21:50:44,730] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7f5c962c6850>>
+[2021-12-10 21:50:44,731] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7f5c966cf3a0>
+[2021-12-10 21:50:44,732] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7f5c966d2e50>
+[2021-12-10 21:50:44,732] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7f5c96309dc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 21:50:44,733] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:44,733] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:44,736] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:44,736] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055044Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:44,736] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055044Z
+20211211/us-west-2/dynamodb/aws4_request
+83daed8423d7767facec639b71688ddb20380ae5d0c7e2ab818448cf48297a0b
+[2021-12-10 21:50:44,737] DEBUG in botocore.auth: Signature:
+6a039748bf13514100c02ed28ab35f1a98af74474910bedf7c5d557a309f3406
+[2021-12-10 21:50:44,737] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055044Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=6a039748bf13514100c02ed28ab35f1a98af74474910bedf7c5d557a309f3406', 'Content-Length': '54'}>
+[2021-12-10 21:50:44,738] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-12-10 21:50:44,741] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96260ac0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:44,766] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:44,766] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96260ac0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:44,775] DEBUG in botocore.retryhandler: Retry needed, action of: 0.05
+[2021-12-10 21:50:44,775] DEBUG in botocore.endpoint: Response received to retry, sleeping for 0.05 seconds
+[2021-12-10 21:50:44,826] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:44,826] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:44,826] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:44,826] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055044Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:44,827] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055044Z
+20211211/us-west-2/dynamodb/aws4_request
+83daed8423d7767facec639b71688ddb20380ae5d0c7e2ab818448cf48297a0b
+[2021-12-10 21:50:44,827] DEBUG in botocore.auth: Signature:
+6a039748bf13514100c02ed28ab35f1a98af74474910bedf7c5d557a309f3406
+[2021-12-10 21:50:44,827] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055044Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=6a039748bf13514100c02ed28ab35f1a98af74474910bedf7c5d557a309f3406', 'Content-Length': '54'}>
+[2021-12-10 21:50:44,827] DEBUG in urllib3.connectionpool: Starting new HTTP connection (2): localhost:8000
+[2021-12-10 21:50:44,827] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c962075e0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:44,828] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:44,828] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c962075e0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:44,828] DEBUG in botocore.retryhandler: Retry needed, action of: 0.1
+[2021-12-10 21:50:44,828] DEBUG in botocore.endpoint: Response received to retry, sleeping for 0.1 seconds
+[2021-12-10 21:50:44,929] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:44,929] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:44,930] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:44,930] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055044Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:44,930] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055044Z
+20211211/us-west-2/dynamodb/aws4_request
+83daed8423d7767facec639b71688ddb20380ae5d0c7e2ab818448cf48297a0b
+[2021-12-10 21:50:44,930] DEBUG in botocore.auth: Signature:
+6a039748bf13514100c02ed28ab35f1a98af74474910bedf7c5d557a309f3406
+[2021-12-10 21:50:44,930] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055044Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=6a039748bf13514100c02ed28ab35f1a98af74474910bedf7c5d557a309f3406', 'Content-Length': '54'}>
+[2021-12-10 21:50:44,930] DEBUG in urllib3.connectionpool: Starting new HTTP connection (3): localhost:8000
+[2021-12-10 21:50:44,931] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96207d00>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:44,931] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:44,931] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96207d00>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:44,932] DEBUG in botocore.retryhandler: Retry needed, action of: 0.2
+[2021-12-10 21:50:44,932] DEBUG in botocore.endpoint: Response received to retry, sleeping for 0.2 seconds
+[2021-12-10 21:50:45,132] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:45,132] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:45,132] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:45,132] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055045Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:45,133] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055045Z
+20211211/us-west-2/dynamodb/aws4_request
+f04b49387d6d8e289bb88508899ec4e2b80275dc32c1b9120b19c3116dda4012
+[2021-12-10 21:50:45,133] DEBUG in botocore.auth: Signature:
+a787f9664efcbdbe48b0e7738e8f2491aab096460088ef99810ecb7c2cf5f599
+[2021-12-10 21:50:45,133] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055045Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=a787f9664efcbdbe48b0e7738e8f2491aab096460088ef99810ecb7c2cf5f599', 'Content-Length': '54'}>
+[2021-12-10 21:50:45,133] DEBUG in urllib3.connectionpool: Starting new HTTP connection (4): localhost:8000
+[2021-12-10 21:50:45,133] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96195430>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:45,134] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:45,134] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96195430>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:45,134] DEBUG in botocore.retryhandler: Retry needed, action of: 0.4
+[2021-12-10 21:50:45,134] DEBUG in botocore.endpoint: Response received to retry, sleeping for 0.4 seconds
+[2021-12-10 21:50:45,535] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:45,535] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:45,536] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:45,536] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055045Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:45,536] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055045Z
+20211211/us-west-2/dynamodb/aws4_request
+f04b49387d6d8e289bb88508899ec4e2b80275dc32c1b9120b19c3116dda4012
+[2021-12-10 21:50:45,536] DEBUG in botocore.auth: Signature:
+a787f9664efcbdbe48b0e7738e8f2491aab096460088ef99810ecb7c2cf5f599
+[2021-12-10 21:50:45,537] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055045Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=a787f9664efcbdbe48b0e7738e8f2491aab096460088ef99810ecb7c2cf5f599', 'Content-Length': '54'}>
+[2021-12-10 21:50:45,537] DEBUG in urllib3.connectionpool: Starting new HTTP connection (5): localhost:8000
+[2021-12-10 21:50:45,538] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96195b50>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:45,541] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:45,542] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96195b50>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:45,544] DEBUG in botocore.retryhandler: Retry needed, action of: 0.8
+[2021-12-10 21:50:45,544] DEBUG in botocore.endpoint: Response received to retry, sleeping for 0.8 seconds
+[2021-12-10 21:50:46,346] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:46,346] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:46,346] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:46,346] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055046Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:46,347] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055046Z
+20211211/us-west-2/dynamodb/aws4_request
+632a418de6f7e37dffe72434903ade3bdb21ba478a2fc71918fa10f19cd7a495
+[2021-12-10 21:50:46,347] DEBUG in botocore.auth: Signature:
+14a13dae2fbdd8edc67734f23d3c00baa1f85c0846a92c1c63d0fd29d764ad31
+[2021-12-10 21:50:46,347] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055046Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=14a13dae2fbdd8edc67734f23d3c00baa1f85c0846a92c1c63d0fd29d764ad31', 'Content-Length': '54'}>
+[2021-12-10 21:50:46,347] DEBUG in urllib3.connectionpool: Starting new HTTP connection (6): localhost:8000
+[2021-12-10 21:50:46,347] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c9619f2b0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:46,348] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:46,348] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c9619f2b0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:46,348] DEBUG in botocore.retryhandler: Retry needed, action of: 1.6
+[2021-12-10 21:50:46,348] DEBUG in botocore.endpoint: Response received to retry, sleeping for 1.6 seconds
+[2021-12-10 21:50:47,950] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:47,950] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:47,951] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:47,951] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055047Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:47,951] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055047Z
+20211211/us-west-2/dynamodb/aws4_request
+28a55c8a93538b95d97790990393b4205e018d6b81f655f70f9c23129810178c
+[2021-12-10 21:50:47,951] DEBUG in botocore.auth: Signature:
+9de268ef4bcebdb5d0292719c25321ebe559412ce8d2d7e9aa5dd69639a97ee5
+[2021-12-10 21:50:47,951] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055047Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=9de268ef4bcebdb5d0292719c25321ebe559412ce8d2d7e9aa5dd69639a97ee5', 'Content-Length': '54'}>
+[2021-12-10 21:50:47,952] DEBUG in urllib3.connectionpool: Starting new HTTP connection (7): localhost:8000
+[2021-12-10 21:50:47,952] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96195bb0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:47,952] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:47,952] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96195bb0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:47,953] DEBUG in botocore.retryhandler: Retry needed, action of: 3.2
+[2021-12-10 21:50:47,953] DEBUG in botocore.endpoint: Response received to retry, sleeping for 3.2 seconds
+[2021-12-10 21:50:51,155] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:51,156] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:51,157] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:51,157] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055051Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:51,157] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055051Z
+20211211/us-west-2/dynamodb/aws4_request
+04165df5183df5d6d55bb9380916b45cba93b3af3db132020669f258139b9447
+[2021-12-10 21:50:51,164] DEBUG in botocore.auth: Signature:
+370bae4f21c16870d3c18e4af35116cbafdf03c21dc73dc71c1fbcca45e29925
+[2021-12-10 21:50:51,167] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055051Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=370bae4f21c16870d3c18e4af35116cbafdf03c21dc73dc71c1fbcca45e29925', 'Content-Length': '54'}>
+[2021-12-10 21:50:51,169] DEBUG in urllib3.connectionpool: Starting new HTTP connection (8): localhost:8000
+[2021-12-10 21:50:51,177] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c961953a0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:51,181] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:51,181] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c961953a0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:51,183] DEBUG in botocore.retryhandler: Retry needed, action of: 6.4
+[2021-12-10 21:50:51,183] DEBUG in botocore.endpoint: Response received to retry, sleeping for 6.4 seconds
+[2021-12-10 21:50:57,587] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f5c96309d30>>
+[2021-12-10 21:50:57,588] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f5c966cf280>
+[2021-12-10 21:50:57,589] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:50:57,589] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055057Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:50:57,589] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055057Z
+20211211/us-west-2/dynamodb/aws4_request
+4ed95c0b5ec653de8f99e9eb8c91e0474ecbde707e789b8c3ad4b78eea8b4fdf
+[2021-12-10 21:50:57,590] DEBUG in botocore.auth: Signature:
+82c9fc658fab438af658078eeeb790164ebe664522d53c4d349d574c6ea9fa6e
+[2021-12-10 21:50:57,593] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055057Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=82c9fc658fab438af658078eeeb790164ebe664522d53c4d349d574c6ea9fa6e', 'Content-Length': '54'}>
+[2021-12-10 21:50:57,595] DEBUG in urllib3.connectionpool: Starting new HTTP connection (9): localhost:8000
+[2021-12-10 21:50:57,599] DEBUG in botocore.endpoint: Exception received when sending HTTP request.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96207730>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:57,610] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f5c9632e850>
+[2021-12-10 21:50:57,611] DEBUG in botocore.retryhandler: retry needed, retryable exception caught: Could not connect to the endpoint URL: "http://localhost:8000/"
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 254, in send
+    urllib_response = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.8/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 91, in _send_request
+    rval = super(AWSConnection, self)._send_request(
+  File "/usr/lib/python3.8/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 119, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3/dist-packages/botocore/awsrequest.py", line 203, in send
+    return super(AWSConnection, self).send(str)
+  File "/usr/lib/python3.8/http/client.py", line 947, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f5c96207730>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 269, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 316, in __call__
+    checker_response = checker(attempt_number, response,
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 222, in __call__
+    return self._check_caught_exception(
+  File "/usr/lib/python3/dist-packages/botocore/retryhandler.py", line 359, in _check_caught_exception
+    raise caught_exception
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 200, in _do_get_response
+    http_response = self._send(request)
+  File "/usr/lib/python3/dist-packages/botocore/endpoint.py", line 269, in _send
+    return self.http_session.send(request)
+  File "/usr/lib/python3/dist-packages/botocore/httpsession.py", line 283, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://localhost:8000/"
+[2021-12-10 21:50:57,614] DEBUG in botocore.retryhandler: Retry needed, action of: 12.8
+[2021-12-10 21:50:57,614] DEBUG in botocore.endpoint: Response received to retry, sleeping for 12.8 seconds
+[2021-12-10 21:55:31,155] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 21:55:31,160] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 21:55:31,168] DEBUG in boto3.resources.action: Calling dynamodb:put_item with {'TableName': 'polls', 'Item': {'poll_id': 1, 'created_by': 'vinhtran', 'question': 'Which OS are you using?', 'responses': ['MacOS', 'Windows', 'Linux'], 'voted_users': {'MacOS': [], 'Windows': [], 'Linux': []}, 'voted_counts': {'MacOS': 0, 'Windows': 0, 'Linux': 0}}, 'ConditionExpression': 'attribute_not_exists(poll_id)'}
+[2021-12-10 21:55:31,169] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.PutItem: calling handler <function copy_dynamodb_params at 0x7fac5e62fe50>
+[2021-12-10 21:55:31,169] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fac5e613850>>
+[2021-12-10 21:55:31,170] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fac5e613850>>
+[2021-12-10 21:55:31,170] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.PutItem: calling handler <function generate_idempotent_uuid at 0x7fac5ea1c3a0>
+[2021-12-10 21:55:31,171] DEBUG in botocore.hooks: Event before-call.dynamodb.PutItem: calling handler <function inject_api_version_header_if_needed at 0x7fac5ea1fe50>
+[2021-12-10 21:55:31,171] DEBUG in botocore.endpoint: Making request for OperationModel(name=PutItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.PutItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Item": {"poll_id": {"N": "1"}, "created_by": {"S": "vinhtran"}, "question": {"S": "Which OS are you using?"}, "responses": {"L": [{"S": "MacOS"}, {"S": "Windows"}, {"S": "Linux"}]}, "voted_users": {"M": {"MacOS": {"L": []}, "Windows": {"L": []}, "Linux": {"L": []}}}, "voted_counts": {"M": {"MacOS": {"N": "0"}, "Windows": {"N": "0"}, "Linux": {"N": "0"}}}}, "ConditionExpression": "attribute_not_exists(poll_id)"}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fac5e656dc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 21:55:31,172] DEBUG in botocore.hooks: Event request-created.dynamodb.PutItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fac5e656d30>>
+[2021-12-10 21:55:31,172] DEBUG in botocore.hooks: Event choose-signer.dynamodb.PutItem: calling handler <function set_operation_specific_signer at 0x7fac5ea1c280>
+[2021-12-10 21:55:31,172] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:55:31,173] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055531Z
+x-amz-target:DynamoDB_20120810.PutItem
+
+content-type;host;x-amz-date;x-amz-target
+b178bc0e51d7aa374298b780dc8c6ba0268646049d5d3ab62d240a2fed39ebab
+[2021-12-10 21:55:31,175] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055531Z
+20211211/us-west-2/dynamodb/aws4_request
+35b05c2a350762ba2a9732de80913a9f2a33350c9608a99a36567c8e6243e7fa
+[2021-12-10 21:55:31,175] DEBUG in botocore.auth: Signature:
+53b491db4aae245774d0e19b5749dd91a604f0cf12cd436c6655d60e35703acd
+[2021-12-10 21:55:31,176] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.PutItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055531Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=53b491db4aae245774d0e19b5749dd91a604f0cf12cd436c6655d60e35703acd', 'Content-Length': '438'}>
+[2021-12-10 21:55:31,176] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-12-10 21:55:31,391] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-12-10 21:55:31,392] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 05:55:31 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': '507335e5-7d1a-4a9e-a9b4-95bbcbcd9875', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 21:55:31,392] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-12-10 21:55:31,392] DEBUG in botocore.hooks: Event needs-retry.dynamodb.PutItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fac5e67b850>
+[2021-12-10 21:55:31,392] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 21:55:31,393] DEBUG in botocore.hooks: Event after-call.dynamodb.PutItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fac5e613850>>
+[2021-12-10 21:55:31,393] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': '507335e5-7d1a-4a9e-a9b4-95bbcbcd9875', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 05:55:31 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': '507335e5-7d1a-4a9e-a9b4-95bbcbcd9875', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 21:55:46,669] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-12-10 21:55:46,670] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fac5e62fe50>
+[2021-12-10 21:55:46,670] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fac5e613850>>
+[2021-12-10 21:55:46,670] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fac5e613850>>
+[2021-12-10 21:55:46,671] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fac5ea1c3a0>
+[2021-12-10 21:55:46,672] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fac5ea1fe50>
+[2021-12-10 21:55:46,672] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fac5e656dc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 21:55:46,673] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fac5e656d30>>
+[2021-12-10 21:55:46,673] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fac5ea1c280>
+[2021-12-10 21:55:46,673] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:55:46,674] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055546Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 21:55:46,675] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055546Z
+20211211/us-west-2/dynamodb/aws4_request
+a6b95ca7a5db6ef77abe8421d8c0cb61b7e7a14e2299d19825125ac2953a1287
+[2021-12-10 21:55:46,675] DEBUG in botocore.auth: Signature:
+147b34f3d814ac503d5d86aae7d03630af58ce03ffed76892298cb09fd086e28
+[2021-12-10 21:55:46,675] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055546Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=147b34f3d814ac503d5d86aae7d03630af58ce03ffed76892298cb09fd086e28', 'Content-Length': '54'}>
+[2021-12-10 21:55:46,720] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 321
+[2021-12-10 21:55:46,720] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 05:55:46 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-RequestId': '417daf48-b948-4871-a3d2-2e54563c040f', 'Content-Length': '321', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 21:55:46,720] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"0"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[]},"Windows":{"L":[]}}}}}'
+[2021-12-10 21:55:46,721] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fac5e67b850>
+[2021-12-10 21:55:46,722] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 21:55:46,722] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fac5e613850>>
+[2021-12-10 21:55:46,722] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('0'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': [], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '417daf48-b948-4871-a3d2-2e54563c040f', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 05:55:46 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-requestid': '417daf48-b948-4871-a3d2-2e54563c040f', 'content-length': '321', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 21:57:37,962] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 21:57:37,968] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 21:57:37,985] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 5}}
+[2021-12-10 21:57:37,987] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7ff40139ee50>
+[2021-12-10 21:57:37,987] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7ff401382850>>
+[2021-12-10 21:57:37,988] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7ff401382850>>
+[2021-12-10 21:57:37,989] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7ff40178b3a0>
+[2021-12-10 21:57:37,990] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7ff40178ee50>
+[2021-12-10 21:57:37,990] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "5"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7ff4013c5dc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 21:57:37,990] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7ff4013c5d30>>
+[2021-12-10 21:57:37,991] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7ff40178b280>
+[2021-12-10 21:57:37,991] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 21:57:37,991] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T055737Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+9689dffce0831d660359a43d6989c7a3460d228804ee3fe92d3067f71da78d94
+[2021-12-10 21:57:37,992] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T055737Z
+20211211/us-west-2/dynamodb/aws4_request
+5a3bc6f9190f7999966d716e0341a3ab0fe5b2a0f6f2ebb220d75161141a0d7a
+[2021-12-10 21:57:37,993] DEBUG in botocore.auth: Signature:
+586b73544544c73e88da82d89cee884ab727006b0703a01329625dc451ce15f3
+[2021-12-10 21:57:37,997] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T055737Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=586b73544544c73e88da82d89cee884ab727006b0703a01329625dc451ce15f3', 'Content-Length': '54'}>
+[2021-12-10 21:57:38,000] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-12-10 21:57:38,015] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-12-10 21:57:38,015] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 05:57:38 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': 'e6cd214d-847d-4983-9d5c-b4c84ecd47d0', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 21:57:38,016] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-12-10 21:57:38,016] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7ff4013ea850>
+[2021-12-10 21:57:38,016] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 21:57:38,017] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7ff401382850>>
+[2021-12-10 21:57:38,017] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': 'e6cd214d-847d-4983-9d5c-b4c84ecd47d0', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 05:57:38 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': 'e6cd214d-847d-4983-9d5c-b4c84ecd47d0', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 22:01:16,761] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 22:01:16,775] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 22:01:16,794] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 5}}
+[2021-12-10 22:01:16,796] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fc9cfab7e50>
+[2021-12-10 22:01:16,796] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:01:16,796] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:01:16,797] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fc9cfea43a0>
+[2021-12-10 22:01:16,802] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fc9cfea7e50>
+[2021-12-10 22:01:16,803] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "5"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fc9cfadedc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 22:01:16,803] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fc9cfaded30>>
+[2021-12-10 22:01:16,803] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fc9cfea4280>
+[2021-12-10 22:01:16,804] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 22:01:16,804] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T060116Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+9689dffce0831d660359a43d6989c7a3460d228804ee3fe92d3067f71da78d94
+[2021-12-10 22:01:16,805] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T060116Z
+20211211/us-west-2/dynamodb/aws4_request
+6e1eb95c727ccb3ff96a7e03dfabdcb8db9b9489e46fdd6a9e9744b66ddcf5e8
+[2021-12-10 22:01:16,806] DEBUG in botocore.auth: Signature:
+4f3d786923ad01e186eba18d9a24e5141356312d75fd434060a0757030915ba6
+[2021-12-10 22:01:16,807] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T060116Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=4f3d786923ad01e186eba18d9a24e5141356312d75fd434060a0757030915ba6', 'Content-Length': '54'}>
+[2021-12-10 22:01:16,808] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-12-10 22:01:16,824] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-12-10 22:01:16,824] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 06:01:16 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': 'f29a095a-d12e-48f3-b0b1-b7769c39e652', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 22:01:16,824] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-12-10 22:01:16,825] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fc9cfb03850>
+[2021-12-10 22:01:16,825] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 22:01:16,825] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:01:16,827] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': 'f29a095a-d12e-48f3-b0b1-b7769c39e652', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 06:01:16 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': 'f29a095a-d12e-48f3-b0b1-b7769c39e652', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 22:02:00,936] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-12-10 22:02:00,936] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fc9cfab7e50>
+[2021-12-10 22:02:00,937] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:02:00,937] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:02:00,937] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fc9cfea43a0>
+[2021-12-10 22:02:00,937] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fc9cfea7e50>
+[2021-12-10 22:02:00,937] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fc9cfadedc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 22:02:00,938] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fc9cfaded30>>
+[2021-12-10 22:02:00,938] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fc9cfea4280>
+[2021-12-10 22:02:00,938] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 22:02:00,939] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T060200Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 22:02:00,941] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T060200Z
+20211211/us-west-2/dynamodb/aws4_request
+f041732bc4a69c5c6ef9bb09557f7efd9a87c13fd74f4238a5ed3d06bbaac205
+[2021-12-10 22:02:00,942] DEBUG in botocore.auth: Signature:
+80016e29518285937fb20283d9bcb91a90382e505f1ff08d6cae54bc7d7e577b
+[2021-12-10 22:02:00,942] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T060200Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=80016e29518285937fb20283d9bcb91a90382e505f1ff08d6cae54bc7d7e577b', 'Content-Length': '54'}>
+[2021-12-10 22:02:00,943] DEBUG in urllib3.connectionpool: Resetting dropped connection: localhost
+[2021-12-10 22:02:00,965] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 321
+[2021-12-10 22:02:00,966] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 06:02:00 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-RequestId': '6679537d-aaa2-4f7f-901e-5aa635f92a97', 'Content-Length': '321', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 22:02:00,966] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"0"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[]},"Windows":{"L":[]}}}}}'
+[2021-12-10 22:02:00,967] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fc9cfb03850>
+[2021-12-10 22:02:00,971] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 22:02:00,972] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:02:00,975] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('0'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': [], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '6679537d-aaa2-4f7f-901e-5aa635f92a97', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 06:02:00 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-requestid': '6679537d-aaa2-4f7f-901e-5aa635f92a97', 'content-length': '321', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 22:02:57,609] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 2}}
+[2021-12-10 22:02:57,610] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7fc9cfab7e50>
+[2021-12-10 22:02:57,610] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:02:57,610] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:02:57,610] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7fc9cfea43a0>
+[2021-12-10 22:02:57,611] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7fc9cfea7e50>
+[2021-12-10 22:02:57,611] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "2"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7fc9cfadedc0>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 22:02:57,611] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fc9cfaded30>>
+[2021-12-10 22:02:57,611] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7fc9cfea4280>
+[2021-12-10 22:02:57,612] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 22:02:57,612] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T060257Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+49c1fd079f1af61fd97dd8d398e7d665b3eee246a755ae99b5bb2d8ca0e4bebb
+[2021-12-10 22:02:57,613] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T060257Z
+20211211/us-west-2/dynamodb/aws4_request
+287ee417591a468be63df1a349dda41d80045b04a059f95ea029d5a3a18f0c3a
+[2021-12-10 22:02:57,613] DEBUG in botocore.auth: Signature:
+79ab82caf5fa1d8a785564d5c2e5afc6a7ba70c918f3bc4be7a4e009ca9a4536
+[2021-12-10 22:02:57,614] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T060257Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=79ab82caf5fa1d8a785564d5c2e5afc6a7ba70c918f3bc4be7a4e009ca9a4536', 'Content-Length': '54'}>
+[2021-12-10 22:02:57,614] DEBUG in urllib3.connectionpool: Resetting dropped connection: localhost
+[2021-12-10 22:02:57,638] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-12-10 22:02:57,639] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 06:02:57 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': 'cf21f80b-dc12-43b0-a9b7-96158066c5cb', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 22:02:57,639] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-12-10 22:02:57,640] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7fc9cfb03850>
+[2021-12-10 22:02:57,640] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 22:02:57,640] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7fc9cfa9b850>>
+[2021-12-10 22:02:57,640] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': 'cf21f80b-dc12-43b0-a9b7-96158066c5cb', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 06:02:57 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': 'cf21f80b-dc12-43b0-a9b7-96158066c5cb', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 22:04:10,404] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:5000
+[2021-12-10 22:04:10,414] DEBUG in urllib3.connectionpool: http://localhost:5000 "POST /register-instance/ HTTP/1.1" 201 4
+[2021-12-10 22:04:10,429] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 2}}
+[2021-12-10 22:04:10,443] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7f961ad32e50>
+[2021-12-10 22:04:10,444] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7f961ad16820>>
+[2021-12-10 22:04:10,444] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7f961ad16820>>
+[2021-12-10 22:04:10,444] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7f961b11e3a0>
+[2021-12-10 22:04:10,445] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7f961b122e50>
+[2021-12-10 22:04:10,445] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "2"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7f961ad59d90>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 22:04:10,445] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f961ad59d00>>
+[2021-12-10 22:04:10,446] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f961b11e280>
+[2021-12-10 22:04:10,446] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 22:04:10,446] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T060410Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+49c1fd079f1af61fd97dd8d398e7d665b3eee246a755ae99b5bb2d8ca0e4bebb
+[2021-12-10 22:04:10,448] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T060410Z
+20211211/us-west-2/dynamodb/aws4_request
+5ef8983ad4ec23d3bd772265bccb8c035d66302c48be6dd74082827e1de5fc39
+[2021-12-10 22:04:10,448] DEBUG in botocore.auth: Signature:
+23950b87c403ed1013ba198709e83900ce07ef3f25de24c235ca7fc8b259d03f
+[2021-12-10 22:04:10,448] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T060410Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=23950b87c403ed1013ba198709e83900ce07ef3f25de24c235ca7fc8b259d03f', 'Content-Length': '54'}>
+[2021-12-10 22:04:10,449] DEBUG in urllib3.connectionpool: Starting new HTTP connection (1): localhost:8000
+[2021-12-10 22:04:10,454] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 2
+[2021-12-10 22:04:10,456] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 06:04:10 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-RequestId': '724b2b5f-cd90-438f-af00-baf746feaf68', 'Content-Length': '2', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 22:04:10,456] DEBUG in botocore.parsers: Response body:
+b'{}'
+[2021-12-10 22:04:10,460] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f961ad7e820>
+[2021-12-10 22:04:10,461] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 22:04:10,461] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7f961ad16820>>
+[2021-12-10 22:04:10,462] DEBUG in boto3.resources.action: Response: {'ResponseMetadata': {'RequestId': '724b2b5f-cd90-438f-af00-baf746feaf68', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 06:04:10 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '2745614147', 'x-amzn-requestid': '724b2b5f-cd90-438f-af00-baf746feaf68', 'content-length': '2', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
+[2021-12-10 22:04:32,882] DEBUG in boto3.resources.action: Calling dynamodb:get_item with {'TableName': 'polls', 'Key': {'poll_id': 1}}
+[2021-12-10 22:04:32,882] DEBUG in botocore.hooks: Event provide-client-params.dynamodb.GetItem: calling handler <function copy_dynamodb_params at 0x7f961ad32e50>
+[2021-12-10 22:04:32,883] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_condition_expressions of <boto3.dynamodb.transform.TransformationInjector object at 0x7f961ad16820>>
+[2021-12-10 22:04:32,883] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_input of <boto3.dynamodb.transform.TransformationInjector object at 0x7f961ad16820>>
+[2021-12-10 22:04:32,883] DEBUG in botocore.hooks: Event before-parameter-build.dynamodb.GetItem: calling handler <function generate_idempotent_uuid at 0x7f961b11e3a0>
+[2021-12-10 22:04:32,883] DEBUG in botocore.hooks: Event before-call.dynamodb.GetItem: calling handler <function inject_api_version_header_if_needed at 0x7f961b122e50>
+[2021-12-10 22:04:32,883] DEBUG in botocore.endpoint: Making request for OperationModel(name=GetItem) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'X-Amz-Target': 'DynamoDB_20120810.GetItem', 'Content-Type': 'application/x-amz-json-1.0', 'User-Agent': 'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource'}, 'body': b'{"TableName": "polls", "Key": {"poll_id": {"N": "1"}}}', 'url': 'http://localhost:8000/', 'context': {'client_region': 'us-west-2', 'client_config': <botocore.config.Config object at 0x7f961ad59d90>, 'has_streaming_input': False, 'auth_type': None}}
+[2021-12-10 22:04:32,884] DEBUG in botocore.hooks: Event request-created.dynamodb.GetItem: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f961ad59d00>>
+[2021-12-10 22:04:32,884] DEBUG in botocore.hooks: Event choose-signer.dynamodb.GetItem: calling handler <function set_operation_specific_signer at 0x7f961b11e280>
+[2021-12-10 22:04:32,884] DEBUG in botocore.auth: Calculating signature using v4 auth.
+[2021-12-10 22:04:32,885] DEBUG in botocore.auth: CanonicalRequest:
+POST
+/
+
+content-type:application/x-amz-json-1.0
+host:localhost:8000
+x-amz-date:20211211T060432Z
+x-amz-target:DynamoDB_20120810.GetItem
+
+content-type;host;x-amz-date;x-amz-target
+018c63eb3f418f6196de5e2c7326dfd644b58bf3b1960df3de65fd4d7a39660a
+[2021-12-10 22:04:32,886] DEBUG in botocore.auth: StringToSign:
+AWS4-HMAC-SHA256
+20211211T060432Z
+20211211/us-west-2/dynamodb/aws4_request
+3c12a5eeb523234ab9d8fdfaa4be0b890190f5dc534884c49e7c7b5bf6799d21
+[2021-12-10 22:04:32,886] DEBUG in botocore.auth: Signature:
+7f8f5811a9521ca0a73fdbc0bc234b2a2a953537f51f9e864683c80de74b987f
+[2021-12-10 22:04:32,886] DEBUG in botocore.endpoint: Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:8000/, headers={'X-Amz-Target': b'DynamoDB_20120810.GetItem', 'Content-Type': b'application/x-amz-json-1.0', 'User-Agent': b'Boto3/1.9.253 Python/3.8.10 Linux/5.11.0-41-generic Botocore/1.16.19 Resource', 'X-Amz-Date': b'20211211T060432Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=fakeMyKeyId/20211211/us-west-2/dynamodb/aws4_request, SignedHeaders=content-type;host;x-amz-date;x-amz-target, Signature=7f8f5811a9521ca0a73fdbc0bc234b2a2a953537f51f9e864683c80de74b987f', 'Content-Length': '54'}>
+[2021-12-10 22:04:32,896] DEBUG in urllib3.connectionpool: http://localhost:8000 "POST / HTTP/1.1" 200 321
+[2021-12-10 22:04:32,896] DEBUG in botocore.parsers: Response headers: {'Date': 'Sat, 11 Dec 2021 06:04:32 GMT', 'Content-Type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-RequestId': '8709d5b6-d8e1-40f5-93b7-885cce0ad055', 'Content-Length': '321', 'Server': 'Jetty(9.4.18.v20190429)'}
+[2021-12-10 22:04:32,906] DEBUG in botocore.parsers: Response body:
+b'{"Item":{"responses":{"L":[{"S":"MacOS"},{"S":"Windows"},{"S":"Linux"}]},"voted_counts":{"M":{"Linux":{"N":"0"},"MacOS":{"N":"0"},"Windows":{"N":"0"}}},"poll_id":{"N":"1"},"question":{"S":"Which OS are you using?"},"created_by":{"S":"vinhtran"},"voted_users":{"M":{"Linux":{"L":[]},"MacOS":{"L":[]},"Windows":{"L":[]}}}}}'
+[2021-12-10 22:04:32,907] DEBUG in botocore.hooks: Event needs-retry.dynamodb.GetItem: calling handler <botocore.retryhandler.RetryHandler object at 0x7f961ad7e820>
+[2021-12-10 22:04:32,911] DEBUG in botocore.retryhandler: No retry needed.
+[2021-12-10 22:04:32,912] DEBUG in botocore.hooks: Event after-call.dynamodb.GetItem: calling handler <bound method TransformationInjector.inject_attribute_value_output of <boto3.dynamodb.transform.TransformationInjector object at 0x7f961ad16820>>
+[2021-12-10 22:04:32,912] DEBUG in boto3.resources.action: Response: {'Item': {'responses': ['MacOS', 'Windows', 'Linux'], 'voted_counts': {'Linux': Decimal('0'), 'MacOS': Decimal('0'), 'Windows': Decimal('0')}, 'poll_id': Decimal('1'), 'question': 'Which OS are you using?', 'created_by': 'vinhtran', 'voted_users': {'Linux': [], 'MacOS': [], 'Windows': []}}, 'ResponseMetadata': {'RequestId': '8709d5b6-d8e1-40f5-93b7-885cce0ad055', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Sat, 11 Dec 2021 06:04:32 GMT', 'content-type': 'application/x-amz-json-1.0', 'x-amz-crc32': '3154288660', 'x-amzn-requestid': '8709d5b6-d8e1-40f5-93b7-885cce0ad055', 'content-length': '321', 'server': 'Jetty(9.4.18.v20190429)'}, 'RetryAttempts': 0}}
